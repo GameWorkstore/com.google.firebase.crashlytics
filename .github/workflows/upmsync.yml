@@ -26,7 +26,7 @@ jobs:
           tar -xvzf content.tgz
           rm content.tgz
           ls
-          git add --a
+          git add --all
           git commit -m "Package Update ${{ env.version }}"
           git push origin
 
@@ -36,7 +36,7 @@ jobs:
           if ! cmp --silent "README.md" "Assets/Package/README.md"; then
               echo "different"
               cp -f README.md Assets/Package/README.md
-              git add --a
+              git add --all
               git commit -m "Updated README.md"
               git push origin
           fi
